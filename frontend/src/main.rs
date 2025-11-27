@@ -134,7 +134,7 @@ pub fn app() -> Html {
             <AdBanner 
                 position="bottom" 
                 image_src="telegram_banner.png"
-                link_url="https://t.me/b_secure_share_bot/secure_share"
+                link_url="https://t.me/b_secure_share_bot"
             />
         </div>
     }
@@ -307,13 +307,13 @@ pub fn sender_view() -> Html {
                         <div class="link-group" style="margin-top: 1rem;">
                             <p>{"Telegram Link (Open in App):"}</p>
                             <div class="link-box">
-                                {format!("https://t.me/b_secure_share_bot/secure_share?startapp={}_{}", id, key)}
+                                {format!("https://t.me/b_secure_share_bot?start={}_{}", id, key)}
                             </div>
                             <button onclick={
                                 let id = id.clone();
                                 let key = key.clone();
                                 Callback::from(move |_| {
-                                    let tg_link = format!("https://t.me/b_secure_share_bot/secure_share?startapp={}_{}", id, key);
+                                    let tg_link = format!("https://t.me/b_secure_share_bot?start={}_{}", id, key);
                                     let _ = web_sys::window().unwrap().navigator().clipboard().write_text(&tg_link);
                                 })
                             } class="copy-btn">
