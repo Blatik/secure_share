@@ -1,0 +1,391 @@
+:root {
+    /* Telegram Theme Variables with Fallbacks */
+    --bg-gradient-start: var(--tg-theme-bg-color, #0f172a);
+    --bg-gradient-end: var(--tg-theme-secondary-bg-color, #1e293b);
+    --primary-color: var(--tg-theme-button-color, #3b82f6);
+    --primary-hover: var(--tg-theme-button-color, #2563eb);
+    /* Telegram doesn't give hover, so we keep fallback or use same */
+    --text-color: var(--tg-theme-text-color, #f8fafc);
+    --text-muted: var(--tg-theme-hint-color, #94a3b8);
+
+    --glass-bg: rgba(30, 41, 59, 0.7);
+    --glass-border: rgba(255, 255, 255, 0.1);
+    --card-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+}
+
+body {
+    font-family: 'Inter', sans-serif;
+    background: linear-gradient(135deg, var(--bg-gradient-start), var(--bg-gradient-end));
+    color: var(--text-color);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    /* Use 100vh, Telegram script handles viewport height */
+    margin: 0;
+    padding: 1rem 0;
+    /* Reduced padding for mobile */
+    box-sizing: border-box;
+    overflow-y: auto;
+}
+
+.container {
+    background: var(--glass-bg);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid var(--glass-border);
+    padding: 3rem;
+    border-radius: 1.5rem;
+    box-shadow: var(--card-shadow);
+    text-align: center;
+    max-width: 500px;
+    width: 90%;
+    animation: fadeIn 0.5s ease-out;
+}
+
+h1 {
+    font-size: 2.5rem;
+    margin-bottom: 0.5rem;
+    background: linear-gradient(to right, #60a5fa, #a78bfa);
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    font-weight: 700;
+}
+
+h2 {
+    font-size: 1.5rem;
+    margin-bottom: 1.5rem;
+    color: var(--text-color);
+}
+
+p {
+    color: var(--text-muted);
+    margin-bottom: 1.5rem;
+    line-height: 1.6;
+}
+
+.home-actions {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+button {
+    background: linear-gradient(to right, var(--primary-color), var(--primary-hover));
+    color: white;
+    border: none;
+    padding: 1rem 2rem;
+    border-radius: 0.75rem;
+    cursor: pointer;
+    font-size: 1.1rem;
+    font-weight: 600;
+    transition: transform 0.2s, box-shadow 0.2s;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 12px rgba(59, 130, 246, 0.3);
+}
+
+button:active {
+    transform: translateY(0);
+}
+
+input[type="text"] {
+    width: 100%;
+    padding: 1rem;
+    border-radius: 0.75rem;
+    border: 1px solid var(--glass-border);
+    background-color: rgba(15, 23, 42, 0.6);
+    color: white;
+    margin-bottom: 1.5rem;
+    font-size: 1rem;
+    box-sizing: border-box;
+    transition: border-color 0.2s;
+}
+
+input[type="text"]:focus {
+    outline: none;
+    border-color: var(--primary-color);
+}
+
+input[type="file"] {
+    width: 100%;
+    padding: 1rem;
+    border-radius: 0.75rem;
+    border: 1px solid var(--glass-border);
+    background-color: rgba(15, 23, 42, 0.6);
+    color: white;
+    margin-bottom: 1.5rem;
+    font-size: 1rem;
+    box-sizing: border-box;
+    cursor: pointer;
+}
+
+input[type="file"]::file-selector-button {
+    background: linear-gradient(to right, var(--primary-color), var(--primary-hover));
+    color: white;
+    border: none;
+    padding: 0.5rem 1rem;
+    border-radius: 0.5rem;
+    cursor: pointer;
+    margin-right: 1rem;
+}
+
+a {
+    color: #60a5fa;
+    text-decoration: none;
+    border-bottom: 1px dashed #60a5fa;
+    transition: opacity 0.2s;
+}
+
+a:hover {
+    opacity: 0.8;
+}
+
+.status-badge {
+    display: inline-block;
+    padding: 0.5rem 1rem;
+    background: rgba(59, 130, 246, 0.1);
+    border: 1px solid rgba(59, 130, 246, 0.2);
+    border-radius: 2rem;
+    color: #93c5fd;
+    font-size: 0.9rem;
+    margin-top: 1rem;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Icons */
+.icon {
+    width: 24px;
+    height: 24px;
+    vertical-align: middle;
+    margin-right: 0.5rem;
+}
+
+/* --- New Styles for SEO & AdSense --- */
+
+/* Ad Banners */
+.ad-banner {
+    width: 100%;
+    margin: 1rem 0;
+    display: flex;
+    justify-content: center;
+}
+
+.ad-top {
+    margin-bottom: 2rem;
+}
+
+.ad-bottom {
+    margin-top: 2rem;
+}
+
+.custom-ad-link {
+    display: block;
+    max-width: 100%;
+    border-bottom: none;
+    /* Remove default link underline style */
+    transition: transform 0.2s;
+}
+
+.custom-ad-link:hover {
+    transform: scale(1.02);
+    opacity: 1;
+}
+
+.custom-ad-image {
+    width: 100%;
+    height: 90px;
+    /* Fixed height for standard banner look */
+    object-fit: cover;
+    /* Crop image to fit container */
+    object-position: center;
+    /* Keep center visible */
+    border-radius: 0.5rem;
+    /* Premium Glow Effect */
+    box-shadow: 0 0 15px rgba(249, 115, 22, 0.3), 0 4px 6px rgba(0, 0, 0, 0.4);
+    border: 1px solid rgba(249, 115, 22, 0.5);
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.custom-ad-link:hover .custom-ad-image {
+    box-shadow: 0 0 25px rgba(249, 115, 22, 0.6), 0 8px 12px rgba(0, 0, 0, 0.5);
+    border-color: rgba(249, 115, 22, 0.8);
+    transform: translateY(-2px);
+}
+
+/* Shine Effect Overlay */
+.custom-ad-link::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 50%;
+    height: 100%;
+    background: linear-gradient(to right,
+            rgba(255, 255, 255, 0) 0%,
+            rgba(255, 255, 255, 0.1) 50%,
+            rgba(255, 255, 255, 0) 100%);
+    transform: skewX(-25deg);
+    transition: left 0.75s;
+}
+
+.custom-ad-link:hover::after {
+    left: 200%;
+    transition: left 0.75s ease-in-out;
+}
+
+/* Hero Text */
+.hero-text {
+    font-size: 1.1rem;
+    color: #cbd5e1;
+    margin-bottom: 2rem;
+}
+
+/* Action Buttons Container */
+.action-buttons {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+    margin-bottom: 3rem;
+}
+
+.primary-btn {
+    flex: 1;
+}
+
+.secondary-btn {
+    flex: 1;
+    background: rgba(30, 41, 59, 0.8);
+    border: 1px solid var(--glass-border);
+    box-shadow: none;
+}
+
+.secondary-btn:hover {
+    background: rgba(51, 65, 85, 0.8);
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+/* How it Works Section */
+.how-it-works {
+    text-align: left;
+    margin-top: 2rem;
+    padding-top: 2rem;
+    border-top: 1px solid var(--glass-border);
+}
+
+.how-it-works h3 {
+    font-size: 1.2rem;
+    margin-bottom: 1.5rem;
+    color: var(--text-color);
+    text-align: center;
+}
+
+.steps {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.step {
+    display: flex;
+    align-items: flex-start;
+    gap: 1rem;
+}
+
+.step-num {
+    background: var(--primary-color);
+    color: white;
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.8rem;
+    font-weight: bold;
+    flex-shrink: 0;
+    margin-top: 0.2rem;
+}
+
+.step h4 {
+    margin: 0 0 0.25rem 0;
+    font-size: 1rem;
+    color: var(--text-color);
+}
+
+.step p {
+    margin: 0;
+    font-size: 0.9rem;
+    color: var(--text-muted);
+}
+
+/* Navigation Bar */
+.nav-bar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 2rem;
+    padding-bottom: 1rem;
+    border-bottom: 1px solid var(--glass-border);
+}
+
+.nav-links {
+    display: flex;
+    gap: 1.5rem;
+}
+
+.nav-link {
+    color: var(--text-muted);
+    text-decoration: none;
+    font-weight: 500;
+    cursor: pointer;
+    transition: color 0.2s;
+    border-bottom: none;
+    font-size: 0.95rem;
+}
+
+.nav-link:hover {
+    color: var(--primary-color);
+    opacity: 1;
+}
+
+.nav-external {
+    display: flex;
+    align-items: center;
+}
+
+.nav-link.external {
+    color: #f97316;
+    /* Rust orange */
+    display: flex;
+    align-items: center;
+    gap: 0.25rem;
+    font-size: 0.85rem;
+}
+
+.nav-link.external:hover {
+    color: #fb923c;
+    text-shadow: 0 0 8px rgba(249, 115, 22, 0.4);
+}
+
+.icon-small {
+    width: 16px;
+    height: 16px;
+}
