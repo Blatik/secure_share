@@ -10,8 +10,7 @@ async fn main() -> Result<(), Box<dyn Error>> {
     let bot = Bot::from_env();
 
     teloxide::repl(bot, |bot: Bot, msg: Message| async move {
-        // Use Cloudflare Pages URL - update this after deployment
-        let web_app_url = "https://secure-share.pages.dev/";
+        let web_app_url = "https://secure-share-78e.pages.dev/";
         
         // Create the keyboard with the Web App button
         let keyboard = InlineKeyboardMarkup::new(vec![vec![
