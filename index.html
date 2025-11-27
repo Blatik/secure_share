@@ -35,36 +35,29 @@
   <script src="https://telegram.org/js/telegram-web-app.js"></script>
 
   <link rel="icon" type="image/png" href="favicon.png" />
+  
+  
 
-
-
-  <link rel="stylesheet" href="index-4f3d76405da5c52.css"
-    integrity="sha384-amQcbcHbRuh16CtbogHLERZrkd9Mad2Qh0A0QCme1pxacr5dy84DLc1rAP2I2S+H" />
+  <link rel="stylesheet" href="index-4f3d76405da5c52.css" integrity="sha384-amQcbcHbRuh16CtbogHLERZrkd9Mad2Qh0A0QCme1pxacr5dy84DLc1rAP2I2S+H"/>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
-
+  
   <script src="webrtc-helper.js"></script>
-  <link rel="modulepreload" href="frontend-a06ae0dabb6dff3f.js" crossorigin="anonymous"
-    integrity="sha384-cpwKzI9MnzEMZKTaN6mGBp1+5Kw2SlUeJDna/LjHd+bFrIJ6DKejIuf0eaSLedYB">
-  <link rel="preload" href="frontend-a06ae0dabb6dff3f_bg.wasm" crossorigin="anonymous"
-    integrity="sha384-0igYHUh2BIRBBdsandI0X/xuGlmXUknYwh02Rj8IP1XkDNjTG/G+T2jFFWluc7IR" as="fetch"
-    type="application/wasm">
-</head>
+<link rel="modulepreload" href="frontend-5ff36f398878dc73.js" crossorigin="anonymous" integrity="sha384-OKJ0pqOI3taGnXkLAz1UjRhmUjDAJyNdVcfS5eJCYQbSBX5NF3BupWhD/omhtsHd"><link rel="preload" href="frontend-5ff36f398878dc73_bg.wasm" crossorigin="anonymous" integrity="sha384-HrSxd1w0R4pKBAPz04HsXUCiSqb4/mKPhaprWpluJ5SyKeuEI9psydXuptGELN2F" as="fetch" type="application/wasm"></head>
 
 <body>
 
-  <script type="module">
-    import init, * as bindings from './frontend-a06ae0dabb6dff3f.js';
-    const wasm = await init({ module_or_path: './frontend-a06ae0dabb6dff3f_bg.wasm' });
+<script type="module">
+import init, * as bindings from './frontend-5ff36f398878dc73.js';
+const wasm = await init({ module_or_path: './frontend-5ff36f398878dc73_bg.wasm' });
 
 
-    window.wasmBindings = bindings;
+window.wasmBindings = bindings;
 
 
-    dispatchEvent(new CustomEvent("TrunkApplicationStarted", { detail: { wasm } }));
+dispatchEvent(new CustomEvent("TrunkApplicationStarted", {detail: {wasm}}));
 
-  </script>
-</body>
+</script></body>
 
 </html>

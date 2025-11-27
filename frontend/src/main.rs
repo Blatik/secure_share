@@ -240,10 +240,16 @@ pub fn sender_view() -> Html {
         let copy_status = copy_status.clone();
         Callback::from(move |_| {
             if let Some((id, key)) = &*file_info {
-                 let link = format!("{}?id={}&key={}", web_sys::window().unwrap().location().origin().unwrap(), id, urlencoding::encode(key));
+                 let window = web_sys::window().unwrap();
+                 let location = window.location();
+                 let base_url = format!("{}//{}{}", 
+                     location.protocol().unwrap(),
+                     location.host().unwrap(),
+                     location.pathname().unwrap()
+                 );
+                 let link = format!("{}?id={}&key={}", base_url, id, urlencoding::encode(key));
                  // Use write_text directly
-                 let _ = web_sys::window().unwrap()
-                     .navigator()
+                 let _ = window.navigator()
                      .clipboard()
                      .write_text(&link);
                  copy_status.set("Copied! 📋".to_string());
@@ -258,10 +264,14 @@ pub fn sender_view() -> Html {
 
     // Generate link outside html! macro
     let link_opt = file_info.as_ref().map(|(id, key)| {
-        format!("{}?id={}&key={}", 
-            web_sys::window().unwrap().location().origin().unwrap(), 
-            id, 
-            urlencoding::encode(key))
+        let window = web_sys::window().unwrap();
+        let location = window.location();
+        let base_url = format!("{}//{}{}", 
+            location.protocol().unwrap(),
+            location.host().unwrap(),
+            location.pathname().unwrap()
+        );
+        format!("{}?id={}&key={}", base_url, id, urlencoding::encode(key))
     });
 
     html! {
