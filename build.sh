@@ -1,6 +1,10 @@
 #!/bin/bash
 set -e
 
+echo "Installing Rust..."
+curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh -s -- -y --default-toolchain stable
+source "$HOME/.cargo/env"
+
 echo "Installing Trunk..."
 curl -L https://github.com/trunk-rs/trunk/releases/download/v0.21.4/trunk-x86_64-unknown-linux-gnu.tar.gz | tar -xz
 chmod +x trunk
