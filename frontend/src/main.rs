@@ -131,7 +131,11 @@ pub fn app() -> Html {
                 <ReceiverView />
             }
             
-            <AdBanner position="bottom" />
+            <AdBanner 
+                position="bottom" 
+                image_src="telegram_banner.png"
+                link_url="https://t.me/b_secure_share_bot/secure_share"
+            />
         </div>
     }
 }
@@ -169,14 +173,21 @@ pub fn nav_bar(props: &NavBarProps) -> Html {
 #[derive(Properties, PartialEq)]
 pub struct AdBannerProps {
     pub position: String,
+    #[prop_or_default]
+    pub image_src: Option<String>,
+    #[prop_or_default]
+    pub link_url: Option<String>,
 }
 
 #[function_component(AdBanner)]
 pub fn ad_banner(props: &AdBannerProps) -> Html {
+    let image = props.image_src.clone().unwrap_or_else(|| "banner.png".to_string());
+    let link = props.link_url.clone().unwrap_or_else(|| "https://blatik.github.io/rustdev-network/".to_string());
+
     html! {
         <div class={format!("ad-banner ad-{}", props.position)}>
-            <a href="https://blatik.github.io/rustdev-network/" target="_blank" rel="noopener noreferrer" class="custom-ad-link">
-                <img src="banner.png" alt="RustDev Network" class="custom-ad-image" />
+            <a href={link} target="_blank" rel="noopener noreferrer" class="custom-ad-link">
+                <img src={image} alt="Advertisement" class="custom-ad-image" />
             </a>
         </div>
     }

@@ -4,5 +4,5 @@ members = [
     "signaling",
     "frontend",
     "storage"
-]
+, "telegram_bot"]
 resolver = "2"
