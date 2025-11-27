@@ -1,0 +1,59 @@
+[package]
+name = "frontend"
+version = "0.1.0"
+edition = "2021"
+
+[dependencies]
+yew = { version = "0.21", features = ["csr"] }
+wasm-bindgen = "0.2"
+gloo-timers = { version = "0.3", features = ["futures"] }
+gloo-net = "0.5"
+serde = { version = "1.0", features = ["derive"] }
+serde_json = "1.0"
+futures = "0.3"
+wasm-bindgen-futures = "0.4"
+uuid = { version = "1.0", features = ["v4", "js"] }
+shared = { path = "../shared" }
+base64 = "0.21"
+js-sys = "0.3"
+x25519-dalek = { version = "2.0", features = ["static_secrets", "getrandom"] }
+chacha20poly1305 = "0.10"
+rand_core = { version = "0.6", features = ["getrandom"] }
+getrandom = { version = "0.2", features = ["js"] }
+urlencoding = "2.1"
+
+[dependencies.web-sys]
+version = "0.3"
+features = [
+    "HtmlInputElement",
+    "File",
+    "FileList",
+    "FileReader",
+    "Blob",
+    "WebSocket",
+    "MessageEvent",
+    "RtcPeerConnection",
+    "RtcConfiguration",
+    "RtcIceServer",
+    "RtcPeerConnectionIceEvent",
+    "RtcDataChannel",
+    "RtcDataChannelEvent",
+    "RtcSessionDescription",
+    "RtcSessionDescriptionInit",
+    "RtcIceCandidate",
+    "RtcIceCandidateInit",
+    "RtcSdpType",
+    "RtcSignalingState",
+    "RtcIceConnectionState",
+    "Window",
+    "Document",
+    "Element",
+    "HtmlElement",
+    "console",
+    "Location",
+    "Navigator",
+    "Clipboard",
+    "Url",
+    "CloseEvent",
+    "Event",
+]

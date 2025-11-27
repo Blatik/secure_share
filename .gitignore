@@ -1,0 +1,32 @@
+# Environment files
+.env
+.env.local
+
+# Rust
+target/
+Cargo.lock
+**/*.rs.bk
+
+# Frontend build
+frontend/dist/
+frontend/.trunk/
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Logs
+*.log
+
+# Shuttle
+.shuttle/
+/target
+.shuttle*
+Secrets*.toml
