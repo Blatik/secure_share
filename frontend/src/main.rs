@@ -174,9 +174,9 @@ pub struct AdBannerProps {
 #[function_component(AdBanner)]
 pub fn ad_banner(props: &AdBannerProps) -> Html {
     let (title, button_text, link) = if props.position == "top" {
-        ("RustDev Network", "Відвідати →", "https://blatik.github.io/rustdev-network/")
+        ("RustDev Network", "Visit →", "https://blatik.github.io/rustdev-network/")
     } else {
-        ("SecureShare в Telegram", "Відкрити бота →", "https://t.me/b_secure_share_bot")
+        ("SecureShare in Telegram", "Open Bot →", "https://t.me/b_secure_share_bot")
     };
 
     html! {
