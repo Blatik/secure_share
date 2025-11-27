@@ -3,6 +3,7 @@ use std::error::Error;
 
 #[tokio::main]
 async fn main() -> Result<(), Box<dyn Error>> {
+    dotenv::dotenv().ok();
     pretty_env_logger::init();
     log::info!("Starting SecureShare Bot...");
 
