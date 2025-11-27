@@ -264,15 +264,38 @@ pub fn sender_view() -> Html {
             if let Some(link) = link_opt {
                 <div class="success-box">
                     <p>{"File Encrypted & Uploaded!"}</p>
-                    <p>{"Share this secure link:"}</p>
-                    <div class="link-box">
-                        <a href={link.clone()}>
-                            {link}
-                        </a>
+                    
+                    <div class="link-group">
+                        <p>{"Web Link:"}</p>
+                        <div class="link-box">
+                            <a href={link.clone()} target="_blank">
+                                {link.clone()}
+                            </a>
+                        </div>
+                        <button onclick={on_copy} class="copy-btn">
+                            {&**copy_status}
+                        </button>
                     </div>
-                    <button onclick={on_copy} style="margin-top: 0.5rem; background: #4CAF50;">
-                        {&**copy_status}
-                    </button>
+
+                    if let Some((id, key)) = &*file_info {
+                        <div class="link-group" style="margin-top: 1rem;">
+                            <p>{"Telegram Link (Open in App):"}</p>
+                            <div class="link-box">
+                                {format!("https://t.me/b_secure_share_bot/secure_share?startapp={}_{}", id, key)}
+                            </div>
+                            <button onclick={
+                                let id = id.clone();
+                                let key = key.clone();
+                                Callback::from(move |_| {
+                                    let tg_link = format!("https://t.me/b_secure_share_bot/secure_share?startapp={}_{}", id, key);
+                                    let _ = web_sys::window().unwrap().navigator().clipboard().write_text(&tg_link);
+                                })
+                            } class="copy-btn">
+                                {"Copy Telegram Link 📋"}
+                            </button>
+                        </div>
+                    }
+
                     <p class="warning">{"Note: The key is in the link. Don't share it publicly!"}</p>
                 </div>
             }
@@ -304,11 +327,27 @@ pub fn receiver_view() -> Html {
             let search = window.location().search().unwrap_or_default();
             let params = web_sys::UrlSearchParams::new_with_str(&search).unwrap();
             
+            // 1. Check standard params
             if let Some(id) = params.get("id") {
                 file_id_input.set(id);
             }
             if let Some(key) = params.get("key") {
                 key_input.set(key);
+            }
+
+            // 2. Check Telegram startapp param (format: id_key)
+            // This needs to be handled carefully. If we redirect, the effect will run again.
+            // For now, we'll just parse it if present and set the state.
+            // A redirect would typically happen at a higher level (e.g., App component)
+            // to ensure the URL is canonical before the component renders.
+            if let Some(startapp) = params.get("tgWebAppStartParam").or(params.get("startapp")) {
+                if let Some((id_part, key_part)) = startapp.split_once('_') {
+                    // Only set if standard params weren't already set, or if startapp is more specific
+                    if file_id_input.is_empty() && key_input.is_empty() {
+                        file_id_input.set(id_part.to_string());
+                        key_input.set(key_part.to_string());
+                    }
+                }
             }
             || ()
         });
