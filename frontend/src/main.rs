@@ -242,10 +242,10 @@ pub fn sender_view() -> Html {
             if let Some((id, key)) = &*file_info {
                  let window = web_sys::window().unwrap();
                  let location = window.location();
-                 let base_url = format!("{}//{}{}", 
+                 // Hardcode /secure_share/ for GitHub Pages
+                 let base_url = format!("{}//{}/secure_share/", 
                      location.protocol().unwrap(),
-                     location.host().unwrap(),
-                     location.pathname().unwrap()
+                     location.host().unwrap()
                  );
                  let link = format!("{}?id={}&key={}", base_url, id, urlencoding::encode(key));
                  // Use write_text directly
@@ -266,10 +266,10 @@ pub fn sender_view() -> Html {
     let link_opt = file_info.as_ref().map(|(id, key)| {
         let window = web_sys::window().unwrap();
         let location = window.location();
-        let base_url = format!("{}//{}{}", 
+        // Hardcode /secure_share/ for GitHub Pages
+        let base_url = format!("{}//{}/secure_share/", 
             location.protocol().unwrap(),
-            location.host().unwrap(),
-            location.pathname().unwrap()
+            location.host().unwrap()
         );
         format!("{}?id={}&key={}", base_url, id, urlencoding::encode(key))
     });
