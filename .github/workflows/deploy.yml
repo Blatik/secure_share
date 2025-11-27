@@ -32,8 +32,11 @@ jobs:
       - name: Install Trunk
         uses: jetli/trunk-action@v0.5.0
 
+      - name: Check Trunk Version
+        run: trunk --version
+
       - name: Build
-        run: trunk build --release --public-url secure_share
+        run: trunk build --release --public-url /secure_share/
         working-directory: frontend
 
       - name: Upload artifact
