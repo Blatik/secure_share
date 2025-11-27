@@ -179,6 +179,8 @@ a:hover {
     border-radius: 0.75rem;
     padding: 1rem;
     box-sizing: border-box;
+    min-height: 10vh;
+    align-items: center;
 }
 
 .ad-top {
@@ -189,36 +191,38 @@ a:hover {
     margin-top: 2rem;
 }
 
-.custom-ad-link {
-    display: block;
-    max-width: 100%;
-    border-bottom: none;
-    /* Remove default link underline style */
-    transition: transform 0.2s;
-}
-
-.custom-ad-link:hover {
-    transform: scale(1.02);
-    opacity: 1;
-}
-
-.custom-ad-image {
+.ad-content {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
     width: 100%;
     max-width: 600px;
-    height: 10vh;
-    /* 10% of viewport height */
-    object-fit: contain;
-    /* Crop image to fit container */
-    object-position: center;
-    /* Keep center visible */
-    border-radius: 0.5rem;
-    transition: all 0.3s ease;
-    position: relative;
-    overflow: hidden;
+    gap: 1rem;
 }
 
-.custom-ad-link:hover .custom-ad-image {
-    opacity: 0.9;
+.ad-title {
+    font-size: 1.2rem;
+    font-weight: 600;
+    color: var(--text-color);
+}
+
+.ad-button {
+    background: linear-gradient(to right, var(--primary-color), var(--primary-hover));
+    color: white;
+    padding: 0.75rem 1.5rem;
+    border-radius: 0.5rem;
+    text-decoration: none;
+    font-weight: 600;
+    transition: transform 0.2s, box-shadow 0.2s;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    white-space: nowrap;
+}
+
+.ad-button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 12px rgba(59, 130, 246, 0.3);
+    opacity: 1;
+    border-bottom: none;
 }
 
 
