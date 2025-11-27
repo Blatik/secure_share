@@ -40,16 +40,16 @@
 
 
 
-    <link rel="stylesheet" href="/index-4f3d76405da5c52.css"
+    <link rel="stylesheet" href="index-4f3d76405da5c52.css"
         integrity="sha384-amQcbcHbRuh16CtbogHLERZrkd9Mad2Qh0A0QCme1pxacr5dy84DLc1rAP2I2S+H" />
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 
     <script src="webrtc-helper.js"></script>
-    <link rel="modulepreload" href="/frontend-a9061eb6890cf1e.js" crossorigin="anonymous"
+    <link rel="modulepreload" href="frontend-a9061eb6890cf1e.js" crossorigin="anonymous"
         integrity="sha384-DQnlUeqZrkzdvsa5kIWX7kOjSaFZYZTaXJ8XS60X1PgVu+LotoCzHXEV4XBuukQJ">
-    <link rel="preload" href="/frontend-a9061eb6890cf1e_bg.wasm" crossorigin="anonymous"
+    <link rel="preload" href="frontend-a9061eb6890cf1e_bg.wasm" crossorigin="anonymous"
         integrity="sha384-BkCk+FrAXh9O4kWP4cIsYrPDotnSbOvAK4RZF/cyshUeoXLgV3A14LrIxwJLEXy+" as="fetch"
         type="application/wasm">
 </head>
@@ -57,8 +57,8 @@
 <body>
 
     <script type="module">
-        import init, * as bindings from '/frontend-a9061eb6890cf1e.js';
-        const wasm = await init({ module_or_path: '/frontend-a9061eb6890cf1e_bg.wasm' });
+        import init, * as bindings from './frontend-a9061eb6890cf1e.js';
+        const wasm = await init({ module_or_path: './frontend-a9061eb6890cf1e_bg.wasm' });
 
 
         window.wasmBindings = bindings;
