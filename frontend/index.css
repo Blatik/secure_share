@@ -205,8 +205,8 @@ a:hover {
 .custom-ad-image {
     width: 100%;
     max-width: 600px;
-    height: auto;
-    /* Fixed height for standard banner look */
+    height: 10vh;
+    /* 10% of viewport height */
     object-fit: contain;
     /* Crop image to fit container */
     object-position: center;
