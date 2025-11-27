@@ -48,8 +48,15 @@ pub fn app() -> Html {
             let search = window.location().search().unwrap_or_default();
             let params = web_sys::UrlSearchParams::new_with_str(&search).unwrap();
             
+            // Check standard params
             if params.get("id").is_some() && params.get("key").is_some() {
                 mode.set("receiver".to_string());
+            }
+            // Check Telegram startapp param
+            else if let Some(startapp) = params.get("tgWebAppStartParam").or(params.get("startapp")) {
+                if startapp.contains('_') {
+                    mode.set("receiver".to_string());
+                }
             }
             || ()
         });
