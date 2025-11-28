@@ -16,6 +16,7 @@ use yew::TargetCast;
 
 #[function_component(App)]
 pub fn app() -> Html {
+    web_sys::console::log_1(&"SecureShare Frontend v1.1 - English".into());
     let mode = use_state(|| "home".to_string()); // home, sender, receiver
     let session_id = use_state(|| String::new());
 
