@@ -369,17 +369,20 @@ a:hover {
 /* Light Mode Overrides for Telegram Web App */
 @media (prefers-color-scheme: light) {
     :root {
-        --bg-gradient-start: var(--tg-theme-bg-color, #f1f5f9);
-        --bg-gradient-end: var(--tg-theme-secondary-bg-color, #e2e8f0);
-        --text-color: var(--tg-theme-text-color, #0f172a);
-        --text-muted: var(--tg-theme-hint-color, #475569);
-        --glass-bg: rgba(255, 255, 255, 0.8);
+        --bg-gradient-start: #f8fafc;
+        --bg-gradient-end: #e2e8f0;
+        --text-color: #0f172a;
+        /* Hardcoded dark text for safety */
+        --text-muted: #475569;
+        --glass-bg: rgba(255, 255, 255, 0.9);
         --glass-border: rgba(0, 0, 0, 0.1);
         --card-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.1);
+        --primary-color: #2563eb;
     }
 
     body {
-        background: linear-gradient(135deg, #f1f5f9, #e2e8f0);
+        background: linear-gradient(135deg, var(--bg-gradient-start), var(--bg-gradient-end));
+        color: var(--text-color);
     }
 
     h1 {

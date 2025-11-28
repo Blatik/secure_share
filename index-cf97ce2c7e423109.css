@@ -40,7 +40,7 @@ body {
     text-align: center;
     max-width: 500px;
     width: 90%;
-    animation: fadeIn 0.5s ease-out;
+    width: 90%;
 }
 
 h1 {
@@ -156,17 +156,7 @@ a:hover {
     margin-top: 1rem;
 }
 
-@keyframes fadeIn {
-    from {
-        opacity: 0;
-        transform: translateY(20px);
-    }
 
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
-}
 
 /* Icons */
 .icon {
@@ -184,6 +174,13 @@ a:hover {
     margin: 1rem 0;
     display: flex;
     justify-content: center;
+    background-color: rgba(24, 24, 27, 0.5);
+    border: 1px solid #27272a;
+    border-radius: 0.75rem;
+    padding: 1rem;
+    box-sizing: border-box;
+    min-height: 10vh;
+    align-items: center;
 }
 
 .ad-top {
@@ -194,62 +191,41 @@ a:hover {
     margin-top: 2rem;
 }
 
-.custom-ad-link {
-    display: block;
-    max-width: 100%;
-    border-bottom: none;
-    /* Remove default link underline style */
-    transition: transform 0.2s;
-}
-
-.custom-ad-link:hover {
-    transform: scale(1.02);
-    opacity: 1;
-}
-
-.custom-ad-image {
+.ad-content {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
     width: 100%;
-    height: 90px;
-    /* Fixed height for standard banner look */
-    object-fit: cover;
-    /* Crop image to fit container */
-    object-position: center;
-    /* Keep center visible */
+    max-width: 600px;
+    gap: 1rem;
+}
+
+.ad-title {
+    font-size: 1.2rem;
+    font-weight: 600;
+    color: var(--text-color);
+}
+
+.ad-button {
+    background: linear-gradient(to right, var(--primary-color), var(--primary-hover));
+    color: white;
+    padding: 0.75rem 1.5rem;
     border-radius: 0.5rem;
-    /* Premium Glow Effect */
-    box-shadow: 0 0 15px rgba(249, 115, 22, 0.3), 0 4px 6px rgba(0, 0, 0, 0.4);
-    border: 1px solid rgba(249, 115, 22, 0.5);
-    transition: all 0.3s ease;
-    position: relative;
-    overflow: hidden;
+    text-decoration: none;
+    font-weight: 600;
+    transition: transform 0.2s, box-shadow 0.2s;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    white-space: nowrap;
 }
 
-.custom-ad-link:hover .custom-ad-image {
-    box-shadow: 0 0 25px rgba(249, 115, 22, 0.6), 0 8px 12px rgba(0, 0, 0, 0.5);
-    border-color: rgba(249, 115, 22, 0.8);
+.ad-button:hover {
     transform: translateY(-2px);
+    box-shadow: 0 6px 12px rgba(59, 130, 246, 0.3);
+    opacity: 1;
+    border-bottom: none;
 }
 
-/* Shine Effect Overlay */
-.custom-ad-link::after {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: -100%;
-    width: 50%;
-    height: 100%;
-    background: linear-gradient(to right,
-            rgba(255, 255, 255, 0) 0%,
-            rgba(255, 255, 255, 0.1) 50%,
-            rgba(255, 255, 255, 0) 100%);
-    transform: skewX(-25deg);
-    transition: left 0.75s;
-}
 
-.custom-ad-link:hover::after {
-    left: 200%;
-    transition: left 0.75s ease-in-out;
-}
 
 /* Hero Text */
 .hero-text {
@@ -388,4 +364,84 @@ a:hover {
 .icon-small {
     width: 16px;
     height: 16px;
+}
+
+/* Light Mode Overrides for Telegram Web App */
+@media (prefers-color-scheme: light) {
+    :root {
+        --bg-gradient-start: #f8fafc;
+        --bg-gradient-end: #e2e8f0;
+        --text-color: #0f172a;
+        /* Hardcoded dark text for safety */
+        --text-muted: #475569;
+        --glass-bg: rgba(255, 255, 255, 0.9);
+        --glass-border: rgba(0, 0, 0, 0.1);
+        --card-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.1);
+        --primary-color: #2563eb;
+    }
+
+    body {
+        background: linear-gradient(135deg, var(--bg-gradient-start), var(--bg-gradient-end));
+        color: var(--text-color);
+    }
+
+    h1 {
+        background: linear-gradient(to right, #2563eb, #7c3aed);
+        background-clip: text;
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+    }
+
+    input[type="text"],
+    input[type="file"] {
+        background-color: rgba(255, 255, 255, 0.9);
+        color: #0f172a;
+        border-color: rgba(0, 0, 0, 0.2);
+    }
+
+    input[type="text"]::placeholder {
+        color: #94a3b8;
+    }
+
+    a {
+        color: #2563eb;
+        border-bottom-color: #2563eb;
+    }
+
+    .status-badge {
+        background: rgba(59, 130, 246, 0.15);
+        border-color: rgba(59, 130, 246, 0.3);
+        color: #1e40af;
+    }
+
+    .ad-banner {
+        background-color: rgba(241, 245, 249, 0.8);
+        border-color: rgba(0, 0, 0, 0.1);
+    }
+
+    .ad-title {
+        color: #0f172a;
+    }
+
+    .secondary-btn {
+        background: rgba(226, 232, 240, 0.9);
+        border-color: rgba(0, 0, 0, 0.15);
+        color: #0f172a;
+    }
+
+    .secondary-btn:hover {
+        background: rgba(203, 213, 225, 0.9);
+    }
+
+    .nav-link {
+        color: #64748b;
+    }
+
+    .nav-link:hover {
+        color: #2563eb;
+    }
+
+    .step h4 {
+        color: #0f172a;
+    }
 }

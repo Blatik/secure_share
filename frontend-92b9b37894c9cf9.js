@@ -253,12 +253,12 @@ function wasm_bindgen__convert__closures________invoke__h70822ccf27a8400c(arg0, 
     wasm.wasm_bindgen__convert__closures________invoke__h70822ccf27a8400c(arg0, arg1, arg2);
 }
 
-function wasm_bindgen__convert__closures_____invoke__he74eeaacb964b263(arg0, arg1) {
-    wasm.wasm_bindgen__convert__closures_____invoke__he74eeaacb964b263(arg0, arg1);
-}
-
 function wasm_bindgen__convert__closures_____invoke__he2ea99071b4a2582(arg0, arg1, arg2) {
     wasm.wasm_bindgen__convert__closures_____invoke__he2ea99071b4a2582(arg0, arg1, arg2);
+}
+
+function wasm_bindgen__convert__closures_____invoke__he74eeaacb964b263(arg0, arg1) {
+    wasm.wasm_bindgen__convert__closures_____invoke__he74eeaacb964b263(arg0, arg1);
 }
 
 const EXPECTED_RESPONSE_TYPES = new Set(['basic', 'cors', 'default']);
