@@ -303,24 +303,7 @@ pub fn sender_view() -> Html {
                         </button>
                     </div>
 
-                    if let Some((id, key)) = &*file_info {
-                        <div class="link-group" style="margin-top: 1rem;">
-                            <p>{"Telegram Link (Open in App):"}</p>
-                            <div class="link-box">
-                                {format!("https://t.me/b_secure_share_bot?start={}_{}", id, key)}
-                            </div>
-                            <button onclick={
-                                let id = id.clone();
-                                let key = key.clone();
-                                Callback::from(move |_| {
-                                    let tg_link = format!("https://t.me/b_secure_share_bot?start={}_{}", id, key);
-                                    let _ = web_sys::window().unwrap().navigator().clipboard().write_text(&tg_link);
-                                })
-                            } class="copy-btn">
-                                {"Copy Telegram Link 📋"}
-                            </button>
-                        </div>
-                    }
+
 
                     <p class="warning">{"Note: The key is in the link. Don't share it publicly!"}</p>
                 </div>

@@ -44,18 +44,18 @@
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 
   <script src="webrtc-helper.js"></script>
-  <link rel="modulepreload" href="frontend-92b9b37894c9cf9.js" crossorigin="anonymous"
-    integrity="sha384-/G3P1nZGq0AhGyuMY7iEK+Nrxwo+jnbfL4eF2wkOMV0N2NDFuHptATbfJQkx7xOc">
-  <link rel="preload" href="frontend-92b9b37894c9cf9_bg.wasm" crossorigin="anonymous"
-    integrity="sha384-/5RBR0V3BjrKsSwdAAKwHw054Gc/acWHZCXSN++uT6FcD7034DDGX1zmG+WMW+vm" as="fetch"
+  <link rel="modulepreload" href="frontend-64b728bea29695f5.js" crossorigin="anonymous"
+    integrity="sha384-C3KLiqKWlfVl+3v6J+7+2+j7+e2Z/6Y96x8bXU/Xm4Q6+2/M758/sH35022u8O6N">
+  <link rel="preload" href="frontend-64b728bea29695f5_bg.wasm" crossorigin="anonymous"
+    integrity="sha384-p9W714u2Tq00a58J99r891823/5q+463Qy88/a4X5483+21e25/4442226272829" as="fetch"
     type="application/wasm">
 </head>
 
 <body>
 
   <script type="module">
-    import init, * as bindings from './frontend-92b9b37894c9cf9.js';
-    const wasm = await init({ module_or_path: './frontend-92b9b37894c9cf9_bg.wasm' });
+    import init, * as bindings from './frontend-64b728bea29695f5.js';
+    const wasm = await init({ module_or_path: './frontend-64b728bea29695f5_bg.wasm' });
 
 
     window.wasmBindings = bindings;
